@@ -1,0 +1,28 @@
+<!-- pages/blog-comments/blog-comments.wxml -->
+<view class="container">
+    <view class="header">
+        <image class="avator" src="{{blogDetail.avatarUrl}}" />
+        <view class="left-content">
+            <view class="title">{{blogDetail.nickName}}</view>
+            <view class="publishTime">{{blogDetail.createTie}}</view>
+        </view>
+    </view>
+    <view class="content">{{blogDetail.content}}</view>
+    <view class="image-list">
+        <block wx:for="{{blogDetail.img}}" wx:key="{{index}}">
+            <image class="image-wrap" src="{{item}}" mode="aspectFill" catchtap="onPreview" data-imgsrc="{{item}}" />
+        </block>
+    </view>
+    <view class="foot">
+        <block class="comments-detail" wx:for="{{comments}}">
+            <view style="display:flex;">
+                <image class="avator" src="{{blogDetail.avatarUrl}}" />
+                <view class="left-content">
+                    <view class="title">{{item.nickName}}</view>
+                    <view class="publishTime">{{item.createTime}}</view>
+                </view>
+            </view>
+            <view class="content">{{item.content}}</view>
+        </block>
+    </view>
+</view>

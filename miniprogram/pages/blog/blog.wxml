@@ -1,0 +1,23 @@
+<!-- pages/blog/blog.wxml -->
+<view class="container">
+  <view class="header">
+    <view class="publish-container" bindtap="onPublish">
+      <view class="iconfont icon-fabu"></view>
+    </view>
+    <view class="search-container">
+      <y-search iconfont="iconfont" icon-sousuo="icon-sousuo" bind:search="search" />
+    </view>
+  </view>
+  <view class="blog-list">
+    <block wx:for="{{blogList}}" wx:key="_id">
+      <view class="blog-panel">
+        <y-blog-card blog="{{item}}" bindtap="goComment" data-_id="{{item._id}}"></y-blog-card>
+        <y-blog-ctrl iconfont="iconfont" icon-fenxiang="icon-fenxiang"
+         icon-pinglun="icon-pinglun" icon-shanchu1="icon-shanchu1" data-_id="{{item._id}}" 
+         bind:onSend="onSend"/>
+      </view>
+    </block>
+  </view>
+  <!-- 底部授权弹出框 -->
+  <y-bottom-model modelShow='{{modelShow}}' bindloginSuccess="loginSuccess" bindloginFail="loginFail"></y-bottom-model>
+</view>

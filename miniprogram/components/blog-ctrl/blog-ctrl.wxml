@@ -1,0 +1,22 @@
+<!-- components/blog-ctrl/blog-ctrl.wxml -->
+<view class="commentPlugs">
+    <view class="commentPlug" bindtap="onComment" data-_id="{{_id}}">
+        <i class="iconfont icon-pinglun commentIcon"></i>
+        <text class="commentText">评论</text>
+    </view>
+    <view class="commentPlug" bindtap="onShare">
+        <i class="iconfont icon-fenxiang commentIcon"></i>
+        <text class="commentText">分享</text>
+    </view>
+</view>
+<!-- 输入评论 -->
+<view class="model" hidden="{{commentHidden}}">
+    <view class="panel">
+        <view class="iconfont icon-shanchu1" id="icon-shanchu1" bindtap="onClose"></view>
+        <form slot="modal-content" report-submit="true" bind:submit="onSend">
+            <textarea name="content" class="comment-content" placeholder="写评论" value="{{content}}" fixed="true"></textarea>
+            <button class="send" form-type="submit">发送</button>
+        </form>
+    </view>
+</view>
+<y-bottom-model modelShow='{{modelShow}}' bindloginSuccess="loginSuccess" bindloginFail="loginFail"></y-bottom-model>

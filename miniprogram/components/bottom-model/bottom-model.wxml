@@ -1,0 +1,9 @@
+<!-- components/bottom-model/bottom-model.wxml -->
+<view class="model" hidden="{{!modelShow}}">
+    <view class="panel">
+        <view class="iconfont icon-shanchu1" bindtap="onClose"></view>
+    <button class="login"
+    open-type="getUserInfo"
+    bindgetuserinfo="onGetUserInfo">获取微信授权信息</button>
+    </view>
+</view>
